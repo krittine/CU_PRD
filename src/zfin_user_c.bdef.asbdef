@@ -1,0 +1,9 @@
+projection;
+strict (2);
+
+define behavior for ZFIN_USER_C alias maintain //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+}

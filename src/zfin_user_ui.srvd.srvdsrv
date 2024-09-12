@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition: ZFIN_USER_UI'
+define service zfin_user_ui {
+  expose ZFIN_USER_C as maintain;
+}

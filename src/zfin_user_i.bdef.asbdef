@@ -1,0 +1,36 @@
+managed implementation in class zbp_fin_user_i unique;
+strict (2);
+
+define behavior for ZFIN_USER_I alias maintain //alias <alias_name>
+persistent table ztfin_user
+lock master
+authorization master (instance)
+
+/*-- etag master <field_name> --*/
+{
+  create;
+  update;
+  delete;
+
+  field (readonly:update) AuthUser, ValidFr, ValidTo;
+  field (readonly) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt;
+
+  validation validate on save
+    {
+      create;
+      field AuthUser;
+    }
+
+/*-- Mapping view field with table filed --*/
+  mapping for ztfin_user
+    {
+      AuthUser       = authuser;
+      ValidFr        = valid_fr;
+      ValidTo        = valid_to;
+      Name           = name;
+      CreatedBy      = created_by;
+      CreatedAt      = created_at;
+      LastChangedBy  = last_changed_by;
+      LastChangedAt  = last_changed_at;
+    }
+}

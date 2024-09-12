@@ -1,0 +1,8 @@
+@EndUserText.label: 'Access Control of ZFIN_USER_I'
+@MappingRole: true
+define role ZFIN_USER_I {
+    grant
+        select
+            on
+                ZFIN_USER_I;                        
+}
